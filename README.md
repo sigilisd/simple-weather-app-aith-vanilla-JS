@@ -1,0 +1,1 @@
+# simple-seather-app-aith-vanilla-JS
