@@ -1,4 +1,9 @@
 const API_KEY = 'f20357f814379be29922a1d77f18bb3b';
+// Предзагрузка картинок
+const images = ['sunny.jpg', 'cloudy.jpg', 'rainy.jpg'];
+images.forEach((img) => {
+    new Image().src = `images/${img}`;
+});
 // 1. Модуль логики (API)
 const WeatherService = {
     async getWeatherData(city) {
@@ -41,9 +46,25 @@ document.getElementById('searchBtn').addEventListener('click', async () => {
     try {
         const data = await WeatherService.getWeatherData(city);
         UI.render(data);
+        updateBackground(data.weather[0].main);
     } catch (err) {
+        console.error("Ошибка при получении данных:", err);
         UI.showError(err.message);
     } finally {
         UI.showLoading(false);
     }
 });
+
+function updateBackground(weatherMain) {
+    const condition = weatherMain.toLowerCase();
+    // Очистка
+    document.body.classList.remove('sunny', 'cloudy', 'rainy');
+    // Логика добавления
+    if (condition === 'clear') {
+        document.body.classList.add('sunny');
+    } else if (condition === 'clouds') {
+        document.body.classList.add('cloudy');
+    } else if (['rain', 'drizzle', 'thunderstorm'].includes(condition)) {
+        document.body.classList.add('rainy');
+    }
+}
