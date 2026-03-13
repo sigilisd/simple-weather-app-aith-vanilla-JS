@@ -1,5 +1,4 @@
-import { API_KEY } from './config.js';
-
+const API_KEY = 'API_KEY_PLACEHOLDER';
 // 1. Модуль логики (API)
 const WeatherService = {
     async getWeatherData(city) {
