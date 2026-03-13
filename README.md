@@ -1,3 +1,4 @@
+[![Maintainability](https://qlty.sh/gh/sigilisd/projects/simple-seather-app-aith-vanilla-JS/maintainability.svg)](https://qlty.sh/gh/sigilisd/projects/simple-seather-app-aith-vanilla-JS)
 # 🌤️ Simple Weather App
 
 Адаптивное веб-приложение для получения прогноза погоды в реальном времени. Пользователь вводит название города, и приложение мгновенно отображает текущую температуру, описание погодных условий и соответствующую иконку. 
